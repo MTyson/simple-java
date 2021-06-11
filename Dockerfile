@@ -1,7 +1,8 @@
 FROM openjdk
 # RUN addgroup -S spring && adduser -S spring -G spring
 # USER spring:spring
-RUN chmod 700 mvnw && ./mvnw clean install package
+RUN chmod 777 mvnw 
+RUN ./mvnw clean package
 # u best start workin'
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
